@@ -26,10 +26,9 @@ package domain
 
 import "time"
 
-// Device represents a user's device with relevant information for the system.
 type Device struct {
-	InternationalIndicators
-	ID             int64     `json:"id,omitempty"`
+	ID             int64     `json:"id"`
+	UserID         int64     `json:"user_id"`
 	UUID           string    `json:"uuid"`
 	Platform       string    `json:"platform"`
 	Model          string    `json:"device_model"`
@@ -39,9 +38,9 @@ type Device struct {
 	AppBuildNumber int16     `json:"app_build_number"`
 	AssetVersion   int16     `json:"asset_version"`
 	FCMToken       string    `json:"fcm_token,omitempty"`
+	CreatedAt      time.Time `json:"created_at"`
+	UpdatedAt      time.Time `json:"updated_at"`
 	IsCRMDevice    bool      `json:"is_crm_device,omitempty"`
-	CreatedAt      time.Time `json:"created_at,omitempty"`
-	UpdatedAt      time.Time `json:"updated_at,omitempty"`
 }
 
 // InternationalIndicators includes country, language, and timezone information.
